@@ -3,13 +3,6 @@
 Implemente cada questão **no arquivo indicado** (`q1.py`…`q4.py`).
 Cada arquivo deve **imprimir o resultado final** quando executado:
 ```bash
-python q1.py
-
-#### Comece aqui a questão ####
-
-
-#### Termine aqui a questão ####
-
 ```
 
 ## O que fazer
@@ -30,6 +23,17 @@ Suponha um sorteio de um número qualquer entre 1 e 60. Teste quantos sorteios s
 * crie um `while` cuja a condição seja que `fim == False`. Dentro do `while` sorteie um número `x` com `random.randint(1,60)` e verifique se ele é 1. Se for 1, troque `fim` para `True`;
 * dentro do `while`, lembre sempre de adicionar 1 ao seu `contador`, que, no fim do código, será impresso como sua resposta.
 ##
+# python q1.py
+import random
+random.seed(2)
+c = 0
+um = False
+while not um:
+    x = random.randint(1, 60)
+    contador += 1
+    if x == 1:
+        um = True
+print(c)
 ### QUESTÃO 2 
 Suponha uma outra modalidade de sorteio de dois números quaisquer entre 1 e 60. Teste quantos sorteios serão necessários na semente 2 para que os números 1 e 2 sejam os sorteados.
 #### Dicas (além das que estão na questão 1)
@@ -39,14 +43,68 @@ Suponha uma outra modalidade de sorteio de dois números quaisquer entre 1 e 60.
 * dentro desse segundo `while`, sorteie um número `x` com `random.randint(1,60)` e verifique se ele já não está entre os sorteados usando `if`. Construa sua condição com os operadores `not` e `in` (faça como se você estivesse falando em inglês `se x não está nos sorteados`), se não estiver, adicione-o aos sorteados com `append`;
 * quando sua lista de sorteados estiver completa, saia do segundo `while`, ordene-a com `sorteados_ordenados = sorted(sorteados)` e verifique se essa nova lista é igual à sua lista `alvo`;
 * se `sorteados_ordenados == alvo`, troque `fim` para `True`;
-##
+import random
+random.seed(2)
+contador = 0
+f = False
+alvo = [1, 2]
+while not f:
+    contador += 1
+    s = []
+    while len(s) < 2:
+        x = random.randint(1, 60)
+        if x not in s:
+            s.append(x)
+    so = sorted(s)
+    if so == alvo:
+        fim = True
+print(contador)
 ### QUESTÃO 3
 Suponha uma outra modalidade de sorteio de três números quaisquer entre 1 e 60. Teste quantos sorteios serão necessários na semente 2 para que os números 1, 2 e 3 sejam os sorteados.
 ##
+import random
+random.seed(2)
+c = 0
+f = False
+alvo = [1, 2, 3]
+
+while not f:
+    c += 1
+    s = []
+    while len(s) < 3:
+        x = random.randint(1, 60)
+        if x not in s:
+            s.append(x)
+    so = sorted(s)
+    if so == alvo:
+        f = True
+print(c)
 ### QUESTÃO 4
 Por fim, suponha uma modalidade de sorteio de `n` números quaisquer entre 1 e 60. Teste quantos sorteios serão necessários na semente 2 para que os números naturais entre `1` e `n` sejam os sorteados. Sua variável `n` será colhida com `n = input()`, nesse caso `n` virá como string, converta-o.
 A maior diferença dessa questão é para criar a lista `alvo`, que deve começar vazia. Use um `for` com um `range(n)` adicionando elementos à `alvo` com `append`.
 Depois lembre de alterar a codição do segundo `while`.
+
+import random
+random.seed(2)
+
+n = int(input())
+c = 0
+f = False
+alvo = []
+for i in range(1, n+1):
+    alvo.append(i)
+while not f:
+    c += 1
+    s = []
+    while len(s) < n:
+        x = random.randint(1, 60)
+        if x not in s:
+            s.append(x)
+    so = sorted(s)
+    if so == alvo:
+        f = True
+
+print(c)
 
 
 Boa trabalho!
