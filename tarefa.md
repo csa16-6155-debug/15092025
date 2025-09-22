@@ -6,7 +6,7 @@ Cada arquivo deve **imprimir o resultado final** quando executado:
 python q1.py
 
 #### Comece aqui a questão ####
-
+p
 
 #### Termine aqui a questão ####
 
